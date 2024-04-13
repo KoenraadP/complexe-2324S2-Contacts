@@ -41,7 +41,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.ofd = new System.Windows.Forms.OpenFileDialog();
             this.sfd = new System.Windows.Forms.SaveFileDialog();
-            this.btnSaveAs = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOpen
@@ -145,22 +144,11 @@
             this.ofd.Filter = "Tekst bestanden|*.txt";
             this.ofd.FileOk += new System.ComponentModel.CancelEventHandler(this.ofd_FileOk);
             // 
-            // btnSaveAs
-            // 
-            this.btnSaveAs.Location = new System.Drawing.Point(14, 226);
-            this.btnSaveAs.Name = "btnSaveAs";
-            this.btnSaveAs.Size = new System.Drawing.Size(235, 23);
-            this.btnSaveAs.TabIndex = 11;
-            this.btnSaveAs.Text = "Opslaan als";
-            this.btnSaveAs.UseVisualStyleBackColor = true;
-            this.btnSaveAs.Click += new System.EventHandler(this.btnSaveAs_Click);
-            // 
-            // frmAddressBook
+            // frmContacts
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(255, 268);
-            this.Controls.Add(this.btnSaveAs);
+            this.ClientSize = new System.Drawing.Size(255, 230);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -172,7 +160,7 @@
             this.Controls.Add(this.txtId);
             this.Controls.Add(this.cbPeople);
             this.Controls.Add(this.btnOpen);
-            this.Name = "frmAddressBook";
+            this.Name = "frmContacts";
             this.Text = "AddressBook";
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -194,7 +182,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.OpenFileDialog ofd;
         private System.Windows.Forms.SaveFileDialog sfd;
-        private System.Windows.Forms.Button btnSaveAs;
     }
 }
 
