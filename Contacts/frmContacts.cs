@@ -16,15 +16,21 @@ namespace Contacts
         public frmContacts()
         {
             InitializeComponent();
+
+            // testbestand automatisch al inlezen
+            // @ nodig om backslashes toe te laten
+            fullPath = @"c:\contacten\creo.txt";
+            AddPeople(fullPath);
+            cbPeople.SelectedIndex = 0;
         }
 
         // methode om bestand in te lezen
         // en personen toe te voegen aan dropdownlist
-        private void AddPeople()
+        private void AddPeople(string fullPath)
         {
             // geopend bestand koppelen aan variabele fullPath
             // bijvoorbeeld: C:\contacten\creo.txt
-            fullPath = ofd.FileName;
+            // fullPath = ofd.FileName;
 
             // alle regels uit tekstbestand in array linesFromFile stoppen
             linesFromFile = File.ReadAllLines(fullPath);
@@ -66,11 +72,20 @@ namespace Contacts
         private void UpdateFile()
         {
             // geselecteerde persoon omzetten naar Person
-            
+            Person p = (Person)cbPeople.SelectedItem;
 
             // alle waarden van p opnieuw invullen
             // op basis van waarden die in textboxes staan
-           
+            // id moet niet aangepast worden omdat de textbox
+            // ook niet kan aangepast worden
+            p.FirstName = txtFirstName.Text;
+            p.LastName = txtLastName.Text;
+            p.Email = txtEmail.Text;
+
+            // index opzoeken van persoon
+            // dit om te zorgen dat we de juiste waarde
+            // op de juiste plaats in de array kunnen aanpassen
+            int index = cbPeople.SelectedIndex;
 
             // lijn van persoon in lines array vervangen door
             // nieuwe waarden
@@ -102,7 +117,7 @@ namespace Contacts
         private void ofd_FileOk(object sender, System.ComponentModel.CancelEventArgs e)
         {
             // AddPeople methode uitvoeren om alle namen in de combobox te plaatsen
-            AddPeople();
+            AddPeople(ofd.FileName);
             // eerste item uit de combobox selecteren
             cbPeople.SelectedIndex = 0;
         }
